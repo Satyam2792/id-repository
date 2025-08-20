@@ -46,7 +46,11 @@ public interface CredentialRepositary<T extends CredentialEntity, E> extends Bas
 	@Transactional
 	@Lock(value = LockModeType.PESSIMISTIC_WRITE) 
 	@QueryHints({ @QueryHint(name = "javax.persistence.lock.timeout", value = "1") })
-	@Query("select c from CredentialEntity c where c.statusCode=:statusCode")
+	
+
+	@Query("select c from CredentialEntity c where c.statusCode = :statusCode order by c.priority asc")
+
+
 	Page<CredentialEntity> findCredentialByStatusCode(@Param("statusCode")String statusCode, Pageable pageable);
 
 	/**

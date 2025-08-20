@@ -7,8 +7,5 @@ public class CredentialIssueResponse {
 
 	private String requestId;
 	private String id;
-
-    public void setRequestId(String requestId) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    
 }
