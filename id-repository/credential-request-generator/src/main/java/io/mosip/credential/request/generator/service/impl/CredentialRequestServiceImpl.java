@@ -113,6 +113,15 @@ public class CredentialRequestServiceImpl implements CredentialRequestService {
 			credential.setCreateDateTime(LocalDateTime.now(ZoneId.of("UTC")));
 			credential.setCreatedBy(IdRepoSecurityManager.getUser());
 			credential.setStatusComment("Request created");
+
+			// set
+			String myIssuerId = "yourIssuerId"; // replace with actual issuer ID or load from config
+            if (credentialIssueRequestDto.getIssuer().equals(myIssuerId)) {
+                        credential.setPriority(1);
+            } else {
+                        credential.setPriority(2);
+            }
+			
 			credentialDao.save(credential);
 			credentialIssueResponse = new CredentialIssueResponse();
 			credentialIssueResponse.setRequestId(requestId);

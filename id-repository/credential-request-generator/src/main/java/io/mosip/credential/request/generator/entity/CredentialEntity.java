@@ -35,6 +35,10 @@ public class CredentialEntity {
 	@Column(name = "status_code", nullable = false)
 	private String statusCode;
 
+	/** The priority. */
+	@Column(name = "priority_code")
+	private Integer priority;
+
 	/** The status code. */
 	@Column(name = "status_comment")
 	private String statusComment;
@@ -133,6 +137,23 @@ public class CredentialEntity {
 		this.statusCode = statusCode;
 	}
 
+	/**
+	 * Gets the  priority.
+	 *
+	 * @return the priority
+	 */
+	public Integer getPriority() {
+		return priority;
+	}
+
+	/**
+	 * Sets the priority.
+	 *
+	 * @param priority the new priority
+	 */
+	public void setPriority(Integer priority) {
+		this.priority = priority;
+	}
 
 
 	/**
